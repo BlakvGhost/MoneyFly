@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,9 +26,12 @@ SECRET_KEY = 'django-insecure-z!qnd7!2)k24e4i7+17k=dc5@%^v9nhym5ll$q^l@o9ip9dr!o
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = True
+if config('ENVIRONMENT', default='local') == 'production':
+    DEBUG = False
+else:
+    DEBUG = True
 
-ALLOWED_HOSTS = ["MyBA.kabirou-alassane.com", 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ["my-ba.kabirou-alassane.com", 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -81,9 +85,19 @@ WSGI_APPLICATION = 'MyBA.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'db.sqlite3',
+        'NAME': config('DATABASE_NAME', default=BASE_DIR / 'db.sqlite3'),
     }
 }
+
+if config('ENVIRONMENT', default='local') == 'production':
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': config('MYSQL_DATABASE_NAME'),
+        'USER': config('MYSQL_USERNAME'),
+        'PASSWORD': config('MYSQL_PASSWORD'),
+        'HOST': config('MYSQL_HOST'),
+        'PORT': config('MYSQL_PORT'),
+    }
 
 
 # Password validation
