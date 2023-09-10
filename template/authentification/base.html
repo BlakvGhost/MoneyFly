@@ -7,16 +7,16 @@
     <meta charset="UTF-8">
     {% include 'base/meta.html' %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block 'title' %} {% endblock %} - Banque-App - Votre Solution de Gestion de Banque en Ligne</title>
+    <title>{% block 'title' %} {% endblock %} - MyBA - Votre Solution de Gestion de Banque en Ligne</title>
 </head>
 
-<body class="bg-app-secondary">
+<body class="bg-auth">
     <main class="">
-        <div class="form-signin text-center container" style="height: 90vh;">
+        <div class="form-signin text-center container" style="height: 100vh;">
             <div class="position-relative h-100 w-100">
                 <div class="container">
                     <div class="position-absolute w-100 row justify-content-center" style="top: 10%">
-                        <div class="col col-lg-6 col-12 card bg-light shadow p-3 rounded">
+                        <div class="col col-lg-6 col-12 card bg-x-secondary text-light shadow p-3 rounded">
                             {% block 'main' %}
 
                             {% endblock %}

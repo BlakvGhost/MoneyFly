@@ -1,6 +1,6 @@
 {
-    "name": "Banque-app",
-    "short_name": "Bq",
+    "name": "MyBA",
+    "short_name": "MyBA",
     "description": "Votre Solution de Gestion de Banque en Ligne",
     "start_url": "/",
     "display": "standalone",

@@ -50,7 +50,7 @@ def createUser(request):
             try:
                 account_num = uuid.uuid4()
                 account_num = str(account_num).upper()[:8]
-                account_num = f"G8-{account_num}"
+                account_num = f"MyBA-{account_num}"
                     
                 user = User.objects.create_user(
                         first_name=firstname,
@@ -61,7 +61,7 @@ def createUser(request):
                         password=password,
                         account_num=account_num,
                     )
-                return JsonResponse({'success': 'Créaction du compte éffectuer avec succès, bonne journée !'})
+                return JsonResponse({'success': f"Créaction du compte éffectuer avec succès, bonne journée avec le numero de compte {account_num} !"})
             except:
                 error = "Un utilisateur existe déjà avec le même email"
         else:

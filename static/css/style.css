@@ -3,6 +3,7 @@
 
 :root {
     --app-primary-color: #2e4053;
+    --x-primary-color: #2f3842;
     --jma-primary-color: #2e4053
 }
 
@@ -23,8 +24,33 @@ body {
     background-color: var(--app-primary-color) !important;
 }
 
+.bg-x-secondary {
+    background-color: var(--x-primary-color) !important;
+}
+
+.bg-auth {
+    background-image: url('/static/img/bk3.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
 .border-tb {
     border-top-left-radius: 10px!important;
     border-bottom-right-radius: 10px!important;
     overflow: hidden!important;
+}
+
+.dropdown-menu {
+    left: initial!important;
+    right: 0!important;
+}
+
+.no-outline:active, .no-outline:focus {
+    outline: none!important;
+    border: none!important;
+    box-shadow: none!important;
+}
+
+.showInDown {
+    transition: .5s ease-in-out;
 }

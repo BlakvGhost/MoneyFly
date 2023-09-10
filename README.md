@@ -1,10 +1,10 @@
-# Banque-App
+# MyBA
 
-Bienvenue dans Banque-App, une application web de gestion bancaire en temps réel développée avec Django et Vue.js.
+Bienvenue dans MyBA, une application web de gestion bancaire en temps réel développée avec Django et Vue.js.
 
 ## Fonctionnalités principales
 
-Banque-App est conçue pour répondre aux besoins de différents types d'utilisateurs :
+MyBA est conçue pour répondre aux besoins de différents types d'utilisateurs :
 
 ### Superadmins
 
@@ -40,13 +40,13 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés :
 1. Clonez le dépôt :
 
 ```sh
-git clone https://github.com/BlakvGhost/banque-app.git
+git clone https://github.com/BlakvGhost/MyBA.git
 ```
 
 2. Installez les dépendances Python :
 
 ```sh
-cd banque-app
+cd MyBA
 pip install -r requirements.txt
 ```
 
@@ -62,7 +62,7 @@ Assurez-vous de configurer correctement les paramètres de votre base de donnée
 
 ## Tester la version en ligne
 
-Vous pouvez tester sa version en ligne sur [ce lien](https://banque-app.kabirou-alassane.com)
+Vous pouvez tester sa version en ligne sur [ce lien](https://MyBA.kabirou-alassane.com)
 
 Pour se connecter:
 
@@ -82,7 +82,7 @@ Créer
 
 ## Contribution
 
-Les contributions à Banque-App sont les bienvenues ! Si vous souhaitez contribuer, veuillez suivre ces étapes :
+Les contributions à MyBA sont les bienvenues ! Si vous souhaitez contribuer, veuillez suivre ces étapes :
 
 1. Fork du dépôt.
 2. Créez une branche pour votre fonctionnalité (`git checkout -b fonctionnalite/nom`).

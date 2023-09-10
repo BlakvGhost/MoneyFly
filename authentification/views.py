@@ -11,16 +11,17 @@ def login(request):
 
     if request.method == 'POST':
 
-        email = request.POST.get('email')
+        account_num = request.POST.get('account_num')
         password = request.POST.get('password')
 
-        if password and email:
-            user = authenticate(request, email=email, password=password)
+        if password and account_num:
+            user = User.objects.filter(account_num=account_num).first()
+            user = authenticate(request, email=user.email, password=password)
 
             if user is not None:
                 user_login(request, user)
                 return redirect('default')
-            error = "Mot de passe ou numero email invalide"
+            error = "Mot de passe ou numero numéro de compte invalide"
         else:
             error = "Veuillez remplir tout les champs"
 
@@ -52,7 +53,7 @@ def register(request):
                 try:
                     account_num = uuid.uuid4()
                     account_num = str(account_num).upper()[:8]
-                    account_num = f"G8-{account_num}"
+                    account_num = f"MyBA-{account_num}"
                     
                     user = User.objects.create_user(
                             first_name=firstname,

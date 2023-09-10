@@ -7,37 +7,46 @@
 <form class="w-100" method="post">
     {% csrf_token %}
     <div class="py-3">
-        <h1 class="h3 mb-3 fw-bold">Creer un compte</h1>
+        <h1 class="h3 mb-2 fw-bold text-decoration-underline">Creer un compte</h1>
+        <div class="py-2">
+            <h6 class="text-muted">Créer gratuitement votre compte client chez nous pour gérer vos transactions monetaires en ligne sans soucis</h6>
+        </div>
     </div>
     {% if error %}
     <div class="alert alert-danger m-3" role="alert">
         {{ error }}
     </div>
     {% endif %}
-    <div class="form-floating my-3">
-        <input name="last_name" type="text" class="form-control" id="last_name_id" placeholder-alt="John">
-        <label for="last_name_id">Prénom</label>
+    <div class="row row-cols-1 row-cols-lg-2">
+        <div class="align-self-center">
+            <div class="input-group mb-2">
+                <label class="input-group-text" for="last_name_id">Prénom</label>
+                <input name="last_name" type="text" class="form-control" id="last_name_id" placeholder="John">
+            </div>
+        </div>        
+        <div class="align-self-center">
+            <div class="input-group mb-2">
+                <label class="input-group-text" for="first_name_id">Nom</label>
+                <input name="first_name" type="text" class="form-control" id="first_name_id" placeholder="DOE">
+            </div>
+        </div>
     </div>
-    <div class="form-floating my-3">
-        <input name="first_name" type="text" class="form-control" id="first_name_id" placeholder-alt="DOE">
-        <label for="first_name_id">Nom</label>
+    <div class="input-group mb-2">
+        <label class="input-group-text" for="email_id">Adresse email</label>
+        <input name="email" type="email" class="form-control" id="email_id" placeholder="name@example.com">
     </div>
-    <div class="form-floating my-3">
-        <input name="email" type="email" class="form-control" id="email_id" placeholder-alt="name@example.com">
-        <label for="email_id">Adresse email</label>
+    <div class="input-group mb-2">
+        <label class="input-group-text" for="password_id">Mot de Passe</label>
+        <input name="password" type="password" class="form-control" id="password_id" placeholder="*********">
     </div>
-    <div class="form-floating my-3">
-        <input name="password" type="password" class="form-control" id="password_id" placeholder-alt="*********">
-        <label for="password_id">Mot de Passe</label>
+    <div class="input-group mb-2">
+        <label class="input-group-text" for="password2_id">Confirmer Mot de Passe</label>
+        <input name="confirm_password" type="password" class="form-control" id="password2_id" placeholder="**********">
     </div>
-    <div class="form-floating my-3">
-        <input name="confirm_password" type="password" class="form-control" id="password2_id" placeholder-alt="**********">
-        <label for="password2_id">Confirmer Mot de Passe</label>
-    </div>
-    <button class="w-100 btn btn-lg my-2 text-light bg-app-secondary" type="submit">Se connecter</button>
+    <button class="btn btn-lg btn-success my-2" type="submit">Je m'inscris</button>
     <div>
-        <a href="{% url 'login' %}" class="text-muted">Vous-avez déjà un compte?</a>
+        <a href="{% url 'login' %}" class="text-secondary">Vous-avez déjà un compte?</a>
     </div>
-    <p class="mt-2 text-muted">&copy; 2023–2023</p>
+    <p class="mt-2 text-muted">&copy; 1999–2023</p>
 </form>
 {% endblock %}

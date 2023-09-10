@@ -7,30 +7,30 @@
     {% include 'base/meta.html' %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block 'title' %} {% endblock %} - Banque-App - Votre Solution de Gestion de Banque en Ligne</title>
-    <script src="https://unpkg.com/@futuravision/futura.js/dist/futurajs.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>{% block 'title' %} {% endblock %} - MyBA - Votre Solution de Gestion de Banque en Ligne</title>
 </head>
 
-<body class="bg-app-secondary">
+<body class="bg-auth" style="height: 100vh;">
     <div id="app">
         {% include 'base/header.html' %}
         <main class="container-fluid">
-            <div class="form-signin text-center container" style="height: 90vh;">
+            <div class="form-signin text-center">
                 <div class="position-relative h-100 w-100">
                     <div class="container">
-                        <div class="position-absolute w-100 row justify-content-center" style="top: 10%">
-                            <div class="col col-lg-6 col-12 card bg-light shadow p-3 rounded">
+                        <div class="w-100 row justify-content-between">
+                            <div class="align-self-baseline my-2 col col-lg-3 col-12 card bg-x-secondary text-light border-tb shadow p-3 rounded">
                                 {% block 'main' %}
 
                                 {% endblock %}
+                            </div>
+                            <div class="align-self-baseline col col-lg-8 col-12 card bg-x-secondary text-light border-tb shadow p-3 rounded">
+                                {% include 'banque/operation_modals.html' %}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </main>
-        {% include 'banque/operation_modals.html' %}
+        </main>        
     </div>
 </body>
 <script>
@@ -43,9 +43,13 @@
                 checking: 0,
                 error: null,
                 state: null,
+                menu: null,
             }
         },
         methods: {
+            showMenu: function(nb) {
+                this.menu = nb;
+            },
             notif: function (type, title, msg) {
                 toastr.options = {
                     "closeButton": false,
@@ -138,10 +142,7 @@
             },
         },
         mounted() {
-            setInterval(this.getState, 2000);
-            new fJs.Sticky({
-                elt: '#staticHeader',
-            });
+            setInterval(this.getState, 2000)
         }
     }).mount('#app')
 </script>
