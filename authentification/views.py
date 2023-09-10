@@ -16,12 +16,13 @@ def login(request):
 
         if password and account_num:
             user = User.objects.filter(account_num=account_num).first()
-            user = authenticate(request, email=user.email, password=password)
+            if user:
+                user = authenticate(request, email=user.email, password=password)
 
-            if user is not None:
-                user_login(request, user)
-                return redirect('default')
-            error = "Mot de passe ou numero numéro de compte invalide"
+                if user is not None:
+                    user_login(request, user)
+                    return redirect('default')
+            error = "Mot de passe ou numéro de compte invalide"
         else:
             error = "Veuillez remplir tout les champs"
 
