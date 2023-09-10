@@ -4,10 +4,12 @@
             <a class="navbar-brand" href="{% url 'default' %}">
                 <img src="/static/favicon.ico" alt="logo banque app">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            <button class="navbar-toggler d-flex no-outline d-lg-none" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="align-self-center">Solde actuel: <span class="fw-bold" :class="state?.balance < 10 ? 'text-danger': 'text-success'">[[ state?.balance ]]</span> F CFA
+            </span>
+                <span class="navbar-toggler-icon align-self-center ms-2"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -26,30 +28,31 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             {% if user.is_staff %}
-                            <li><a @click="showMenu(1)" class="dropdown-item" href="javascript:void(0)" data-x-toggle="modal"
+                            <li><a @click="showMenu(1)" class="dropdown-item" href="#menu_output" data-x-toggle="modal"
                                     data-bs-target="#retrait_modal_id">Retrait Depuis</a></li>                            
-                            <li><a @click="showMenu(2)" class="dropdown-item border-top" href="javascript:void(0)" data-bs-toggle="modal"
+                            <li><a @click="showMenu(2)" class="dropdown-item border-top" href="#menu_output" data-bsx-toggle="modal"
                                     data-x-target="#depot_modal_id">Dépot Vers</a></li>
                             {% else %}
-                            <li><a @click="showMenu(2)" class="dropdown-item border-top" href="javascript:void(0)" data-bs-toggle="modal"
+                            <li><a @click="showMenu(2)" class="dropdown-item border-top" href="#menu_output" data-bsx-toggle="modal"
                                     data-x-target="#depot_modal_id">Transferer</a></li>
                             {% endif %}
-                            <li><a @click="showMenu(4)" class="dropdown-item border-top" href="javascript:void(0)" data-bs-toggle="modal"
+                            <li><a @click="showMenu(4)" class="dropdown-item border-top" href="#menu_output" data-bsx-toggle="modal"
                                     data-x-target="#historique_modal_id">Historiques</a></li>
                             {% if user.is_superuser %}
-                            <li><a @click="showMenu(3)" class="dropdown-item border-top" href="javascript:void(0)" data-x-toggle="modal"
+                            <li><a @click="showMenu(3)" class="dropdown-item border-top" href="#menu_output" data-x-toggle="modal"
                                     data-bs-target="#retrait_modal_id">Créer un compte</a></li>
                             {% endif %}
                         </ul>
                     </li>
                 </ul>
                 <div class="d-flex flex-column flex-lg-row">
-                    <a href="javascript:void(0)" class="align-self-center mx-3 text-decoration-none text-light opacity-50">
-                        Solde actuel [[ state?.balance ]] F CFA
+                    <a href="javascript:void(0)" class="d-lg-block d-none align-self-center mx-3 text-decoration-none text-light opacity-50">
+                        Solde actuel: <span class="fw-bold" :class="state?.balance < 10 ? 'text-danger': 'text-success'">[[ state?.balance ]]</span> F CFA
                     </a>
                     <div class="nav-item dropdown">
                         <button title="Votre compte" class="nav-link text-light btn no-outline"
                             id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="me-1 d-lg-none">Profile</span>
                             <i class="mdi mdi-24px mdi-account-circle-outline"></i>
                         </button>
                         <ul class="dropdown-menu fade text-start" aria-labelledby="navbarDropdown">
@@ -72,6 +75,7 @@
                         </ul>
                     </div>                    
                     <a title="Se Déconnecter" class="btn btn-danger align-self-center" href="{% url 'logout' %}">
+                        <span class="me-1 d-lg-none">Se Déconnecter</span>
                         <i class="mdi mdi-24px mdi-logout"></i>
                     </a>
                 </div>

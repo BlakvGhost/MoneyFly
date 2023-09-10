@@ -17,13 +17,13 @@
             <div class="form-signin text-center">
                 <div class="position-relative h-100 w-100">
                     <div class="container">
-                        <div class="w-100 row justify-content-between">
+                        <div class="w-100 row justify-content-between mx-auto my-2">
                             <div class="align-self-baseline my-2 col col-lg-3 col-12 card bg-x-secondary text-light border-tb shadow p-3 rounded">
                                 {% block 'main' %}
 
                                 {% endblock %}
                             </div>
-                            <div class="align-self-baseline col col-lg-8 col-12 card bg-x-secondary text-light border-tb shadow p-3 rounded">
+                            <div id="menu_output" class="align-self-baseline col col-lg-8 col-12 card bg-x-secondary text-light border-tb shadow p-3 rounded">
                                 {% include 'banque/operation_modals.html' %}
                             </div>
                         </div>
@@ -49,7 +49,6 @@
         methods: {
             showMenu: function(nb) {
                 this.menu = nb;
-                
             },
             notif: function (type, title, msg) {
                 toastr.options = {
@@ -77,10 +76,6 @@
                 axios.post(path, this.transaction).then(res => {
                     this.notif('success', type, res.data.success)
                     this.transaction = {}
-
-                    $('.modal').each((i, elt) => {
-                        $(elt).find('.btn-close').click();
-                    })
 
                     return this.checking = false;
                 })

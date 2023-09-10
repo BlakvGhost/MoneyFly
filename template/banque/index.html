@@ -10,27 +10,27 @@
     <ul class="list-group list-group-flush text-start">
         {% if user.is_superuser %}
         <a data-x-toggle="modal" data-bs-target="#create_user_modal_id" @click="showMenu(3)" :class="menu == 3 ? 'btn btn-dark' : 'list-group-item'"
-            class="text-start fw-bold btn btn-dark border-tb my-1" href="javascript:void(0)">
-            Creer un compte admin
+            class="text-start fw-bold btn btn-dark border-tb my-1" href="#menu_output">
+            Créer un compte admin
         </a>
         {% endif %}
         {% if user.is_staff %}        
         <a data-x-toggle="modal" data-bs-target="#retrait_modal_id" @click="showMenu(1)" :class="menu == 1 ? 'btn btn-dark' : 'list-group-item'"
-            class="text-start fw-bold btn btn-dark border-tb my-1" href="javascript:void(0)">
+            class="text-start fw-bold btn btn-dark border-tb my-1" href="#menu_output">
             Retrait Depuis
         </a>
         <a data-x-toggle="modal" data-bs-target="#depot_modal_id" @click="showMenu(2)" :class="menu == 2 ? 'btn btn-dark' : 'list-group-item'"
-            class="text-start fw-bold btn btn-dark my-1 border-tb" href="javascript:void(0)">
+            class="text-start fw-bold btn btn-dark my-1 border-tb" href="#menu_output">
             Dépot Vers
         </a>
         {% else %}
         <a data-x-toggle="modal" data-bs-target="#depot_modal_id" @click="showMenu(2)" :class="menu == 2 ? 'btn btn-dark' : 'list-group-item'"
-            class="text-start fw-bold btn btn-dark my-1 border-tb" href="javascript:void(0)">
+            class="text-start fw-bold btn btn-dark my-1 border-tb" href="#menu_output">
             Transferer vers un compte
         </a>
         {% endif %}  
         <a data-x-toggle="modal" data-bs-target="#historique_modal_id" @click="showMenu(4)" :class="menu == 4 ? 'btn btn-dark' : 'list-group-item'"
-            class="text-start fw-bold btn btn-dark my-1 border-tb" href="javascript:void(0)">
+            class="text-start fw-bold btn btn-dark my-1 border-tb" href="#menu_output">
             Historique de vos transactions
         </a>        
     </ul>
