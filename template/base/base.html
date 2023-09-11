@@ -8,6 +8,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block 'title' %} {% endblock %} - MoneyFly - Votre Solution de Gestion de Banque en Ligne</title>
+    <script src="https://unpkg.com/@futuravision/futura.js/dist/futurajs.min.js"></script>
+    <script type="text/javascript">
+        
+    </script>
 </head>
 
 <body class="bg-auth" style="height: 100vh;">
@@ -138,7 +142,10 @@
             },
         },
         mounted() {
-            setInterval(this.getState, 2000)
+            setInterval(this.getState, 2000);
+            new fJs.Sticky({
+            elt: '#header',
+        });
         }
     }).mount('#app')
 </script>
