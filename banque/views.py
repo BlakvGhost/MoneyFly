@@ -50,7 +50,7 @@ def createUser(request):
             try:
                 account_num = uuid.uuid4()
                 account_num = str(account_num).upper()[:8]
-                account_num = f"MyBA-{account_num}"
+                account_num = f"MoneyFly-{account_num}"
                     
                 user = User.objects.create_user(
                         first_name=firstname,

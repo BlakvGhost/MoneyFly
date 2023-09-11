@@ -1,6 +1,6 @@
 {
-    "name": "MyBA",
-    "short_name": "MyBA",
+    "name": "MoneyFly",
+    "short_name": "MoneyFly",
     "description": "Votre Solution de Gestion de Banque en Ligne",
     "start_url": "/",
     "display": "standalone",
