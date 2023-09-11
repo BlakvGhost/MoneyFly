@@ -31,7 +31,7 @@ if config('ENVIRONMENT', default='local') == 'production':
 else:
     DEBUG = True
 
-ALLOWED_HOSTS = ["my-ba.kabirou-alassane.com", 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ["money-fly.kabirou-alassane.com", 'localhost', '127.0.0.1']
 
 
 # Application definition

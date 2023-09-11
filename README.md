@@ -62,7 +62,7 @@ Assurez-vous de configurer correctement les paramètres de votre base de donnée
 
 ## Tester la version en ligne
 
-Vous pouvez tester sa version en ligne sur [ce lien](https://MoneyFly.kabirou-alassane.com)
+Vous pouvez tester sa version en ligne sur [ce lien](https://money-fly.kabirou-alassane.com)
 
 Pour se connecter:
 
