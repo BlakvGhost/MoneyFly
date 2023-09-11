@@ -12,7 +12,7 @@ MoneyFly est conçue pour répondre aux besoins de différents types d'utilisate
 - Possibilité de faire des dépôts et des retraits de fonds pour les clients.
 - Gestion globale du système.
 
-### Admins Moyens
+### agents
 
 - Gestion des clients et des comptes.
 - Réalisation de dépôts et de retraits pour les clients.
@@ -66,15 +66,11 @@ Vous pouvez tester sa version en ligne sur [ce lien](https://money-fly.kabirou-a
 
 Pour se connecter:
 
-### compte super admin
+### compte agent
 
-email: `admin@exemple.com`
+email: `agent1@exemple.com`
 
 password: `passme`
-
-### compte Admins Moyens
-
-Créer
 
 ### compte client
 
