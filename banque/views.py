@@ -1,10 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.http import JsonResponse
 import json
-import uuid
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from .models import Transactions, User
+from authentification.views import account_number
 
 
 @login_required
@@ -48,9 +48,7 @@ def createUser(request):
 
         if password == confirm_password:
             try:
-                account_num = uuid.uuid4()
-                account_num = str(account_num).upper()[:8]
-                account_num = f"MoneyFly-{account_num}"
+                account_num = account_number()
                     
                 user = User.objects.create_user(
                         first_name=firstname,

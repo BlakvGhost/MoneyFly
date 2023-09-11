@@ -2,7 +2,14 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as user_login, logout as user_logout
 from .models import MyUser as User
 import uuid
+from datetime import datetime
 
+
+def account_number():
+    annee = datetime.now().year % 100
+    account_num = uuid.uuid4()
+    account_num = str(account_num).upper()[:8]
+    return f"MFLY-{account_num}-{annee}"
 
 def login(request):
     if request.user.is_authenticated:
@@ -52,9 +59,7 @@ def register(request):
 
             if password == confirm_password:
                 try:
-                    account_num = uuid.uuid4()
-                    account_num = str(account_num).upper()[:8]
-                    account_num = f"MoneyFly-{account_num}"
+                    account_num = account_number()
                     
                     user = User.objects.create_user(
                             first_name=firstname,
